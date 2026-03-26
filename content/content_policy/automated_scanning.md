@@ -1,8 +1,7 @@
 +++
+title = "Automated Scanning"
 date = "2026-03-26"
 +++
-
-# Automated scanning
 
 Pixeldrain scans uploaded images and videos against known CSAM (Child Sexual
 Abuse Material) databases. Currently we are working with [Project

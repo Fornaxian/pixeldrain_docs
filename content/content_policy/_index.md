@@ -1,8 +1,7 @@
 +++
+title = "Content policy / TOS"
 weight = 40
 +++
-
-# Content policy and Terms of Service
 
 ## Disallowed contents
 

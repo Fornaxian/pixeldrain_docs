@@ -1,8 +1,7 @@
 +++
+title = "Reporting abuse"
 weight = 10
 +++
-
-# Reporting abuse
 
 There are two ways to report abusive content on pixeldrain: Through the report
 button on the download page, and through e-mail. For serious and urgent cases

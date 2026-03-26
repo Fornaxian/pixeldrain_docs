@@ -1,8 +1,7 @@
 +++
+title = "Filesystem Guide"
 weight = 20
 +++
-
-# Filesystem Guide
 
 Pixeldrain has an experimental filesystem feature. It can be accessed from any
 account with a paid subscription (Patreon or Prepaid) by going to

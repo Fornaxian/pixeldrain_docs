@@ -1,8 +1,7 @@
 +++
+title = "Acknowledgements"
 weight = 30
 +++
-
-# Acknowledgements
 
 ## Software used
 
