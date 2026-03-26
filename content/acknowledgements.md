@@ -8,9 +8,8 @@ weight = 30
 
  * [Go](https://golang.org/)
  * [ScyllaDB](https://www.scylladb.com/)
- * [Nginx](https://www.nginx.com/)
- * [Ubuntu Server edition](https://ubuntu.com/)
  * [Debian](https://www.debian.org/)
+ * [Plausible](https://plausible.io/)
 
 ## Programming libraries
 

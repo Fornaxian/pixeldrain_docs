@@ -306,12 +306,12 @@ Some fun facts:
 
 Yes, here's a high resolution pixeldrain logo with text. The font is called
 Orbitron, it was designed by Matt McInerney and uses the Open Font License.
+[Pixeldrain high-res
+logo](https://pixeldrain.com/res/img/pixeldrain_high_res.png).
 
-<img src="/res/img/pixeldrain_high_res.png" style="max-width: 100%; height: 80px;" /><br/>
-
-And here's a vector version of just the icon:
-
-<img src="/res/img/pixeldrain.svg" style="max-width: 100%; height: 80px;" /><br/>
+And here's a vector version of just the icon. The page may appear completely
+white, because the logo itself is white. [Pixeldrain vector
+icon](https://pixeldrain.com/res/img/pixeldrain.svg).
 
 ## Can I advertise on pixeldrain?
 
