@@ -1,0 +1,14 @@
+<div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="{{ partial "docs/icon" "menu" }}" class="book-icon" alt="{{ partial "docs/text/i18n" "Menu" }}" />
+  </label>
+
+  <!-- We forked this layout page to make the title a semantically correct h1 element instead of a h3 -->
+  <h1 class="menu-title">{{ partial "docs/title" . }}</h1>
+
+  <label for="toc-control">
+    {{ if partial "docs/toc-show" . }}
+    <img src="{{ partial "docs/icon" "toc" }}" class="book-icon" alt="{{ partial "docs/text/i18n" "Table of Contents" }}" />
+    {{ end }}
+  </label>
+</div>

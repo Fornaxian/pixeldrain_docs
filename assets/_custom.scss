@@ -1,18 +1,20 @@
 @mixin theme-dark {
+	--font-size: 17px;
+
 	// based on https://www.nordtheme.com/
 	--body-background: #141414;
 	--body-background-tint: none;
 
-	--body-font-color: #cccccc;
+	--body-font-color: #eeeeee;
 
-	--color-link: #68a328;
-	--color-visited-link: #5c8e25;
+	--color-link: #8ddb3a;
+	--color-visited-link: #68a328;
 
 	--icon-filter: brightness(0) invert(1);
 
 	--gray-100: #2d2d2d;
 	--gray-200: #383838;
-	--gray-500: #d8dee9;
+	--gray-500: #424242;
 
 	@include accent("default", #81a1c1);
 	@include accent("note", #5e81ac);
@@ -25,4 +27,52 @@
 	@include accent("info", #5e81ac);
 	@include accent("success", #a3be8c);
 	@include accent("danger", #bf616a);
+}
+
+
+// Fix overflow issue in header, the text was clipping. We fix it by setting
+// overflow: visible
+.book-header h3 {
+	overflow: visible;
+	margin: 0;
+}
+
+// Always show the header which contains the post title
+.book-header {
+	display: block;
+}
+
+// For some reason posts have an extra title at the top while documentation
+// pages don't. Here we hide the redundant title on posts
+article.markdown.book-post>h1 {
+	display: none;
+}
+
+// The title normally has a huge 1em margin on both the top and bottom, this is
+// the default on most browsers. Here we disable it for the menu so it doesn't
+// get too large
+.menu-title {
+	margin: 0;
+}
+
+// Leave some padding between the menu button and the title on the mobile layout
+label[for="menu-control"] {
+	margin-right: 1rem;
+}
+
+// Hide the menu button and TOC button on screens which are large enough to
+// always show them
+@media screen and (min-width: $mobile-breakpoint) {
+
+	label[for="menu-control"],
+	label[for="toc-control"] {
+		display: none;
+	}
+}
+
+// Shrink the title on smaller screens so it doesn't fill up the whole screen
+@media screen and (max-width: $mobile-breakpoint) {
+	.menu-title {
+		font-size: 1.2rem;
+	}
 }
