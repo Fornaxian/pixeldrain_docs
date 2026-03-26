@@ -3,28 +3,6 @@ title = "Fornax's Guide To Ridiculously Fast Ethernet"
 date = 2024-03-07T01:01:00+01:00
 +++
 
-- [Introduction](#introduction)
-- [Sysctls](#sysctls)
-  - [net.ipv4.tcp_congestion_control](#net-ipv4-tcp-congestion-control)
-  - [net.core.default_qdisc and txqueuelen](#net-core-default-qdisc-and-txqueuelen)
-  - [net.ipv4.tcp_shrink_window](#net-ipv4-tcp-shrink-window)
-  - [net.ipv4.tcp_{w,r}mem](#net-ipv4-tcp-w-r-mem)
-  - [net.ipv4.tcp_mem](#net-ipv4-tcp-mem)
-- [Network Interface Cards](#network-interface-cards)
-- [ethtool](#ethtool)
-  - [Channels (ethtool -l)](#channels-ethtool-l)
-  - [Ring buffers (ethtool -g)](#ring-buffers-ethtool-g)
-  - [Interrupt Coalescing (ethtool -c)](#interrupt-coalescing-ethtool-c)
-- [BIOS](#bios)
-  - [NUMA Nodes per socket](#numa-nodes-per-socket)
-  - [SMT Control](#smt-control)
-  - [IOMMU](#iommu)
-- [Reverse proxy](#reverse-proxy)
-- [HTTP/2 or QUIC?](#http-2-or-quic)
-- [Operating system](#operating-system)
-- [Kernel](#kernel)
-- [That's all, folks!](#that-s-all-folks)
-
 ## Introduction
 
 If you are one of the lucky few who has a fast enough connection, you might have
@@ -216,13 +194,13 @@ plenty for your applications.
 I set these values dynamically per host with Ansible:
 
 ```yaml
-{{noescape `- name: configure tcp_mem
+- name: configure tcp_mem
   sysctl:
     name: net.ipv4.tcp_mem
     value: "{{ (mempages|int * 0.4)|int }} {{ (mempages|int * 0.5)|int }} {{ (mempages|int * 0.6)|int }}"
     state: present
   vars:
-    mempages: "{{ ansible_memtotal_mb * 256 }}" # There are 256 mempages in a MiB`}}
+    mempages: "{{ ansible_memtotal_mb * 256 }}" # There are 256 mempages in a MiB
 ```
 
 ## Network Interface Cards
@@ -350,7 +328,7 @@ This is our ceiling value. Higher than this and the buffers will overflow. But
 enough that it might actually make a measurable difference in packet latency. So
 we opt for a more sane value of 100µs instead. That still gives the CPU plenty
 of time to do other work in between interrupts. A 3 GHz CPU core will be able to
-perform about 30000 calculations inbetween each interrupt. At the same time it's
+perform about 30000 calculations between each interrupt. At the same time it's
 low enough to barely make a measurable difference in latency, at most a tenth of
 a millisecond.
 
@@ -420,7 +398,7 @@ full duplex can reach up to 25 GB/s! When the IOMMU is enabled it means that all
 the data that the NIC sends/receives needs to go through the IOMMU first before
 it can go into RAM. This adds a little bit of latency. When you are running a
 high end NIC in your PCI slot, then the added latency makes sure that your NIC
-will **never ever get anywhwere near the advertised speed**. In some cases the
+will **never ever get anywhere near the advertised speed**. In some cases the
 overhead is so large that the NIC will effectively drop off the PCI bus,
 immediately crashing your system once it gets only slightly overloaded. Yes,
 really, I have seen this happen.
@@ -434,7 +412,7 @@ off and on is night and day. I am actually **furious** that it took me so long
 to discover this. I spent *weeks* pulling hair out of my head trying to figure
 out why my NIC was locking up whenever I tried to put any real load on it. All
 the NIC tuning guides I could find talk about tweaking little ethtool params,
-installing drivers, updating firmware and useles crap like that, the IOMMU was
+installing drivers, updating firmware and useless crap like that, the IOMMU was
 completely omitted in every one of them. I was getting so desperate with my
 terrible NIC performance that I just started flipping toggles in the BIOS to see
 if anything made a difference. If you have any idea how long it takes to reboot
@@ -604,7 +582,7 @@ promising a 40% TCP performance boost. Crazy!
 
 **Behold.. One hundred gigabits per second!**
 
-![nload showing 85 Gbps](/res/img/100gbps.webp)
+![nload showing 85 Gbps](/posts/2024-03-07_network_optimizations_100gbps.webp)
 
 Actually my nload seems to cap out at around 87 Gbps.. there's probably some
 overhead somewhere. It's close though.
@@ -619,11 +597,12 @@ not over. I will always have this urge to get the absolute most out of my
 servers. I'm paying for the whole CPU and I'm going to use the whole CPU after
 all.
 
-Anyway, check out [Pixeldrain](/) if you like, it's the fastest way to transfer
-files across the web. And I'm working on a [cloud storage](/filesystem) offering
-as well. It has built in rclone and FTPS support. Pixeldrain also has a built in
-[speedtest](/speedtest) which you can use to see the fruits of my labour. The
-source for this document is available in markdown format on [my
+Anyway, check out [Pixeldrain](https://pixeldrian.com) if you like, it's the
+fastest way to transfer files across the web. And I'm working on a [cloud
+storage](/filesystem) offering as well. It has built in rclone and FTPS support.
+Pixeldrain also has a built in [speedtest](https://pixeldrian.com/speedtest)
+which you can use to see the fruits of my labour. The source for this document
+is available in markdown format on [my
 GitHub](https://github.com/Fornaxian/pixeldrain_web/blob/master/res/include/md/100_gigabit_ethernet.md).
 
 Follow me on [Mastodon](https://mastodon.social/@fornax),

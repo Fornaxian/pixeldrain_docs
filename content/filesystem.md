@@ -15,10 +15,6 @@ account with a paid subscription (Patreon or Prepaid) by going to
  * If you experience any issues while using the filesystem, feel free to discuss
    them on [the Discord community](https://discord.gg/TWKGvYAFvX).
 
-Contents
-
-[TOC]
-
 ## Pricing
 
 Every time you create or remove a file your account's storage usage will be
@@ -81,8 +77,9 @@ Shared directories and files will have a shared icon next to them in the file
 manager. Clicking that icon will open the shared link. You can also copy the
 shared link directly with the `Copy link` button in the toolbar.
 
-If a shared file gets reported for breaking the [content policy](/abuse) your
-ability to share files from your account may be taken away.
+If a shared file gets reported for breaking the [content
+policy](/content_policy) your ability to share files from your account may be
+taken away.
 
 ## Limits
 
@@ -207,7 +204,7 @@ The filesystem also supports FTPS, both anonymously and with an account. The FTP
 server is hosted at `pixeldrain.com` on port `990`. The encryption mode used is
 `Implicit FTP over TLS`. Here is an example configuration in FileZilla:
 
-![FTP configuration](/res/img/misc/ftp_login.webp)
+![FTP configuration](/filesystem_ftp_login.webp)
 
 When using FileZilla please make sure you have the "Data transfer mode" set to
 Binary. If you do not do this FileZilla will corrupt your files if it does not
@@ -222,7 +219,7 @@ There are two different ways to log in to the FTP server:
 
 To connect to your personal directory you need to enter your account's username
 as username in the FTP client. The password needs to be an API key from the [API
-keys page](/user/api_keys). If you connect now you will be able to access your
+keys page](https://pixeldrain.com/user/api_keys). If you connect now you will be able to access your
 personal directory (called `/me`). Here you can upload and download to your
 heart's desire.
 

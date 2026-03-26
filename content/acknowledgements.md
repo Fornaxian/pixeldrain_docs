@@ -35,10 +35,10 @@ weight = 30
 
 ## Other resources
 
- * [The map image](/res/img/map.webp) on the home page is from [Wikimedia
+ * [The map image](https://pixeldrain.com/res/img/map.webp) on the home page is from [Wikimedia
    Commons](https://en.wikipedia.org/wiki/File:A_large_blank_world_map_with_oceans_marked_in_blue.PNG)
    and is licensed under the GNU Free Documentation License.
- * [The background image](/res/img/inflating_star.webp) on the home page is by
+ * [The background image](https://pixeldrain.com/res/img/inflating_star.webp) on the home page is by
    [NASA Goddard](https://images.nasa.gov/details-GSFC_20171208_Archive_e000383)
    and is [allowed to be used
    commercially](https://www.nasa.gov/nasa-brand-center/images-and-media/).

@@ -34,9 +34,9 @@ When logging in to a pixeldrain account a cookie named 'pd_auth_key' will be
 installed. This cookie keeps your login session active. When you delete it you
 will be logged out of your account.
 
-When you use the style selector on the [Appearance](/appearance) page a cookie
-called 'style' will be set. This cookie controls the appearance of the website
-for you.
+When you use the style selector on the
+[Appearance](https://pixeldrain.com/appearance) page a cookie called 'style'
+will be set. This cookie controls the appearance of the website for you.
 
 Pixeldrain does not use tracking cookies. We also don't use fingerprinting to
 track our users. The only information that is saved is the information that you
@@ -74,7 +74,7 @@ and 30 days ago counts towards your limit.
 Whenever someone downloads a file from your account it counts toward your
 transfer limit. If you want to limit how much of your transfer cap others can
 use then you can configure a limit on the [sharing settings
-page](/user/sharing).
+page](https://pixeldrain.com/user/sharing).
 
 If the person who downloads the file also has a premium account then their own
 data cap will be used first.
@@ -112,8 +112,9 @@ not exceeded your download limit), then premium will not improve your download
 speed. Premium only increases how much you can download, not how fast.
 
 If you want to know your maximum download speed from pixeldrain's servers you
-can use our [speedtest](/speedtest). The speedtest will always download at the
-fastest speed possible, even if your download limit has been exceeded.
+can use our [speedtest](https://pixeldrain.com/speedtest). The speedtest will
+always download at the fastest speed possible, even if your download limit has
+been exceeded.
 
 In order to keep pixeldrain affordable we use the cheapest hosting available.
 That means that the quality of our network is not always the best. It's possible
@@ -149,7 +150,7 @@ pixeldrain's end of the connection.
 * Pixeldrain's caching servers are overloaded. When there is a large surge in
   traffic to pixeldrain, the cache servers can overload which causes things to
   slow down. You can see the status of the caching servers on the [status
-  page](/status).
+  page](https://pixeldrian.com/status).
 * Pixeldrain's storage servers are overloaded. When this is the case you'll see
   that the upload hangs at 100% progress for a while. Then the file was
   successfully uploaded to the caching server, but for the upload to complete it
@@ -197,7 +198,7 @@ net.core.rmem_max=268435456
 After adding the lines, run `sudo sysctl -p` to apply the settings.
 
 For information on what these do, and more network optimization tricks on Linux,
-refer to my [network optimization guide](/100_gigabit_ethernet).
+refer to my [network optimization guide](/posts/network_optimizations).
 
 ## Is pixeldrain available in every country?
 
@@ -276,13 +277,14 @@ link, if someone accepts to be your affiliate then their active subscription
 will earn you pixeldrain credit. The affiliate program is opt-in and fully
 transparent. Users will always be notified when their affiliate account is
 updated. You can update who you are sponsoring by editing the affiliate name on
-your [user settings page](/user/settings).
+your [user settings page](https://pixeldrian.com/user/settings).
 
 Here is a summary of all the rules and limitations:
 
 * Each paying customer using your affiliate code will earn you €0.01 in prepaid
   credit every day. The credit is added to your account on a daily basis, as you
-  can see on the [transactions page](/user/prepaid/transactions).
+  can see on the [transactions
+  page](https://pixeldrian.com/user/prepaid/transactions).
 * Sponsoring someone with an affiliate code does not cost you any extra money.
   The resulting fee comes out of pixeldrain's pockets.
 * You can only earn pixeldrain credit with the affiliate program. There is no
