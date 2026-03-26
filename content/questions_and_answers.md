@@ -1,5 +1,5 @@
 +++
-title = "Questions and Answers"
+title = "Questions and answers"
 weight = 10
 +++
 

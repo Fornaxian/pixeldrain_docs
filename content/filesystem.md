@@ -1,5 +1,5 @@
 +++
-title = "Filesystem Guide"
+title = "Filesystem guide"
 weight = 20
 +++
 

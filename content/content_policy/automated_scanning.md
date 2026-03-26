@@ -1,5 +1,5 @@
 +++
-title = "Automated Scanning"
+title = "Automated scanning"
 date = "2026-03-26"
 +++
 

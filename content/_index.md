@@ -3,11 +3,12 @@
 Welcome to our brand new documentation site. First I'll quickly explain what
 pixeldrain is:
 
-Pixeldrain is a file hosting website developed by
-[Fornax](https://fornaxian.tech) in his lunch breaks at school. It allows you to
-quickly upload files and share them with other people around the world. From
-humble beginnings, pixeldrain has grown to be one of the largest file hosting
-platforms on the internet, serving hundreds of millions of files every month.
+Pixeldrain is a file hosting website originally developed by
+[Fornax](https://fornaxian.tech) during his lunch breaks at school. It allows
+you to quickly upload files and share them with other people around the world.
+From humble beginnings, pixeldrain has grown to be one of the largest file
+hosting platforms on the internet, serving hundreds of millions of files every
+month.
 
 ## Features
 
