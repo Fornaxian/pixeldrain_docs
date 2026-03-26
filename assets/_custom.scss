@@ -1,0 +1,28 @@
+@mixin theme-dark {
+	// based on https://www.nordtheme.com/
+	--body-background: #141414;
+	--body-background-tint: none;
+
+	--body-font-color: #cccccc;
+
+	--color-link: #68a328;
+	--color-visited-link: #5c8e25;
+
+	--icon-filter: brightness(0) invert(1);
+
+	--gray-100: #2d2d2d;
+	--gray-200: #383838;
+	--gray-500: #d8dee9;
+
+	@include accent("default", #81a1c1);
+	@include accent("note", #5e81ac);
+	@include accent("tip", #a3be8c);
+	@include accent("important", #b48ead);
+	@include accent("warning", #d08770);
+	@include accent("caution", #bf616a);
+
+	// Fallback for {{< hint >}} shortcodes
+	@include accent("info", #5e81ac);
+	@include accent("success", #a3be8c);
+	@include accent("danger", #bf616a);
+}
