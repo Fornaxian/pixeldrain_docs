@@ -1,67 +1,104 @@
 +++
-title = "Content policy / TOS"
+title = "Content policy / Terms of service"
 weight = 40
 +++
 
-## Disallowed contents
+## Disallowed content types
 
 The following types of content are not allowed to be shared on pixeldrain. They
 will be removed when reported.
 
-* **Copyright violation** - Works which are shared without permission from the
-  copyright holder. For copyright reports we need a formal DMCA takedown request
-  originating from the copyright holder or a representative. See the chapter
-  [E-Mail reporting rules](#toc_2) below. When sending a copyright infringement
-  notice to our abuse address, please state clearly that it is a copyright
-  infringement notice so that we can properly detect the type of report. Using
-  words like "theft" or "stolen" won't be detected because they are too vague.
+Violating these rules will result in your account and IP address being banned
+from uploading to pixeldrain.
 
-* **Abuse of minors** - Videos, images or audio fragments depicting abuse or
-  inappropriate touching of minors will be removed. Users uploading this type of
-  content will receive a permanent account and IP address ban.
+If you have found content on pixeldrain which falls in any of the categories
+below, you should report it to us so we can review the material. See [Reporting
+abuse](/content_policy/reporting_abuse/) for instructions on how to report
+abusive material. Please state clearly in which category the content falls, the
+literal name of the category needs to be present in the e-mail message. And
+don't forget to include a link to the content itself.
 
-* **Zoophilia** - Videos, images or audio depicting abuse or inappropriate
-  touching of animals.
+### Copyright abuse
 
-* **Terrorism** - Videos, images or audio fragments which promote and glorify
-  acts of terrorism. This category is only for material which promotes
-  terrorism. Material which shows terrorism (torture, murder) should be reported
-  under the _gore_ category.
+Works which are shared without permission from the copyright holder. For
+copyright reports we need a formal copyright infringement notice originating
+from the copyright holder or a representative. See the chapter [E-Mail
+reporting](/content_policy/reporting_abuse/#e-mail-reporting). When
+sending a copyright infringement notice to our abuse address, please state
+clearly that it is a copyright infringement notice so that we can properly
+detect the type of report. Using words like "theft" or "stolen" won't be
+detected because they are too vague.
 
-* **Gore** - Graphic and shocking videos or images depicting severe harm to
-  humans (or animals).
+### Child abusive material
 
-* **Malware and computer viruses** - Software programs designed to cause harm to
-  computer systems. Please attach some proof that the file actually contains
-  malware, like a VirusTotal scan result. If no proof is provided then we will
-  assume the report is invalid.
+This category includes:
+* Media which shows nude children, inappropriate touching of children or
+  physical harm to children.
+* Pornographic media which contains children.
+* Media which encourages sexual exploitation of children.
+* Media which depicts sexual communication with children.
+* Text posts promoting the sale or distribution of child abusive material.
 
-* **Doxing** - Publishing private information about individuals or
-  organisations. This includes publicly sharing address information, ID scans or
-  login credentials which are not supposed to be public. Please [read about what
-  doxing really means](https://en.wikipedia.org/wiki/Doxing) before filing a
-  report in this category. If the file is content that you produce and sell,
-  then it does not fall under the doxing category. In that case you should file
-  a copyright claim.
+Definitions:
+* A child is defined as a person under the age of 18 years.
+* Media is defined as images, videos, audio and documents which contain
+  audiovisual information.
 
-* **Revenge porn** - The distribution of sexually explicit images or videos of
-  individuals without their consent. This category _does not apply_ for material
-  which is sold online for money. In that case you should file a copyright
-  claim. Please [read about what revenge porn really
-  means](https://en.wikipedia.org/wiki/Revenge_porn) before filing a report in
-  this category.
+We use [automated scanning](/content_policy/automated_scanning) to search for
+child abusive material on the site. When a match is found, the account which
+uploaded the files is marked for human review.
 
-Violating these rules will result in your IP address being banned from uploading
-to pixeldrain.
+Users uploading this type of content will receive a 10 year account and IP
+address ban.
 
-If you have found content which falls in any of these categories on pixeldrain
-please report it by sending an e-mail to
-[abuse@pixeldrain.com](mailto:abuse@pixeldrain.com). Please state clearly in
-which category the content falls, and don't forget to include a link to the
-content itself in the e-mail. When reporting links through e-mail pay attention
-to the rules described below.
+### Zoophilia
 
-## Types of banishments
+Videos, images or audio depicting abuse or inappropriate touching of animals.
+See [the definition on Wikipedia](https://en.wikipedia.org/wiki/Zoophilia)
+for more details.
+
+### Terroristic propaganda
+
+Videos, images or audio fragments which promote and glorify acts of terrorism.
+This category is only for material which promotes terrorism. Material which
+shows terrorism (torture, murder) should be reported under the _gore_ category.
+
+### Gore
+
+Graphic and shocking videos or images depicting severe harm to humans or
+animals. See [the definition on
+Wikipedia](https://en.wikipedia.org/wiki/Graphic_violence#Gore) for more
+details.
+
+### Malware and computer viruses
+
+Software programs designed to cause harm to computer systems. Please attach some
+proof that the file actually contains malware, like a VirusTotal scan result. If
+no proof is provided then we will assume the report is invalid.
+
+### Doxing
+
+Publishing private information about individuals or organisations. This includes
+publicly sharing address information, ID scans or login credentials which are
+not supposed to be public. Please [read about what doxing really
+means](https://en.wikipedia.org/wiki/Doxing) before filing a report in this
+category. If the file is content that you produce and sell, then it does not
+fall under the doxing category. In that case you should file a copyright claim.
+
+### Revenge porn
+
+The distribution of (non-commercial) sexually explicit images, videos or
+documents of individuals without their consent. See [the definition on
+Wikipedia](https://en.wikipedia.org/wiki/Revenge_porn) for more details.
+
+This category _does not apply_ for material which is sold online for money.
+Material sold on platforms like OnlyFans and Privacy.com.br are not revenge porn
+because they are published and sold by the author themselves. By doing this they
+have explicitly consented to the publication of the material. In this case you
+should file a copyright claim, see [Copyright abuse](#copyright-abuse). If you
+submit an invalid report in this category you will not receive a response.
+
+## How account bans work
 
 When a TOS violation is reported, and the report has been accepted, both the IP
 address and the account of the uploader will be banned from uploading files.
