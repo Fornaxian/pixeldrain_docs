@@ -41,6 +41,73 @@ Pixeldrain does not use tracking cookies. We also don't use fingerprinting to
 track our users. The only information that is saved is the information that you
 manually enter or upload.
 
+## I need help logging into my account.
+
+The advice differs based on the situation.
+
+* I have lost my password
+
+  You can recover your account by logging in with just your e-mail address.
+  Leave the password field on the login page empty and press "Log in". A link
+  will be sent to your e-mail address which can be used to gain access to your
+  account. Be sure to change your password afterwards.
+
+* I have lost my username
+
+  Use your e-mail address.
+
+* I have lost my e-mail address
+
+  Use your username.
+
+* I have lost my e-mail address, username and password
+
+  If you have a subscription through Patreon, your account can be recovered by
+  sending a message to Fornax. If not, then your account is lost. Make a new
+  one.
+
+## I'm having trouble activating my Patreon subscription.
+
+After purchasing a subscription on Patreon you need to link your Pixeldrain
+account to your Patreon account to activate the subscription plan.
+
+Here are a few things you should **not do** when buying a subscription on
+Patreon:
+
+* Canceling the subscription before upgrading your pixeldrain account.
+
+  To activate the subscription on pixeldrain, it needs to be active on Patreon
+  at time of activation. If you already canceled the subscription you will not
+  be able to upgrade your account. If you already did this, you should be able
+  to re-activate the subscription at no additional cost by just ordering it
+  again on Patreon. See the [join
+  pixeldrain](https://www.patreon.com/join/pixeldrain) page.
+
+* Choosing "Pledge a custom amount" on Patreon.
+
+  To activate your subscription you need to be on a valid membership tier. When
+  you choose to pledge a custom amount, no tier will be applied to your account
+  and you will not be able to upgrade your pixeldrain account. If you did this,
+  you should be able to join a membership tier using the funds you already paid.
+  See the [join pixeldrain](https://www.patreon.com/join/pixeldrain) page.
+
+And here are some other common errors with activating the subscription:
+
+* The activation link says "Site cannot be reached".
+
+  This means your internet provider is censoring pixeldrain. There are
+  alternative domain names (see [Alternative domain
+  names](#alternative-domain-names)), but these cannot be used to activate your
+  subscription. See [Is pixeldrain available in every
+  country?](#is-pixeldrain-available-in-every-country) for advice on what to do.
+
+* I get error code "authentication_required" when activating my subscription.
+
+  To activate your subscription you need to be logged in to pixeldrain.com, not
+  any of the alternative domain names. Go ahead to
+  [pixeldrain.com/login](https://pixeldrain.com/login), log in to your account
+  and try again.
+
 ## How does the transfer limit work?
 
 Pixeldrain has two kinds of transfer limit, the free limit for users without a
@@ -201,6 +268,10 @@ refer to my [network optimization guide](/posts/network_optimizations).
 
 ## Is pixeldrain available in every country?
 
+If your internet provider is censoring pixeldrain and you're looking for a quick
+solution: The easiest way to get around it is by using [Cloudflare
+Warp](https://one.one.one.one/).
+
 I strive to make pixeldrain as accessible as possible to everyone. Pixeldrain
 does not block access from any country or network. Some countries have very
 restricted internet connectivity though. Pixeldrain has been blocked in some
@@ -259,6 +330,27 @@ blocked in the following locations:
 If you live in any of these locations and are having trouble accessing
 pixeldrain **please contact your ISP**. I am ready to comply with whatever
 demands they have, I just want my website to be accessible again.
+
+### Alternative domain names
+
+In most cases only access to pixeldrain.com is blocked by internet providers. We
+have an array of alternative domain names which can be used to access the
+website. Each domain name has its own session cookie, so you will have to log in
+to each separately. Note that when you send a link to an alternative domain to
+someone, they will most likely not be logged in either. This can mean they won't
+be able to use their own subscription unless logged in to the specific domain.
+
+The list:
+* [pixeldrain.com](https://pixeldrain.com) (the primary domain)
+* [pixeldrain.net](https://pixeldrain.net)
+* [pixeldra.in](https://pixeldra.in) (was the primary domain before 2019)
+* [pixeldrain.nl](https://pixeldrain.nl)
+* [pixeldrain.biz](https://pixeldrain.biz)
+* [pixeldrain.tech](https://pixeldrain.tech)
+* [pixeldrain.dev](https://pixeldrain.dev)
+
+The alternative domains cannot be used to activate a Patreon subscription. Only
+use pixeldrain.com for that purpose.
 
 ## Why can't I find pixeldrain links on Google?
 
