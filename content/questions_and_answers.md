@@ -318,9 +318,6 @@ blocked in the following locations:
 
 * The Philippines (since 2022-03). I have reached out to PLDT about a dozen
   times but they never answer.
-* Egypt (since 2023-03). I have tried reaching out to WE Telecom, but their
-  website is not available outside egypt and their support address is bouncing
-  my mails.
 * Italy (since 2024-01). Tried reaching out to their communications office and
   police multiple times, never an answer.
 * Spain (since 2025-06). They did not provide a reason for this block. The fake
