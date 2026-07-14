@@ -39,7 +39,10 @@ first thing you get pointed at. There is **a ton** of conflicting information
 online about which sysctls do what and what to set them to.
 
 Sysctls are not persistent through reboots, add these lines to
-`/etc/sysctl.conf` to apply them at startup.
+`/etc/sysctl.d/10-network.conf` to apply them at startup. Note: The standard
+place for sysctls used to be `/etc/sysctl.conf`, but this file has been
+deprecated in favour of `/etc/sysctl.d`. Using the old file will not work
+anymore on updated systems.
 
 Through experimentation and kernel recompilation I finally settled on these
 values:
@@ -53,36 +56,29 @@ without a doubt that BBR is the best, by far! BBR is the only algo which does
 not absolutely tank your transfer rate when a packet is lost.
 
 TCP BBR was merged into the kernel at version 4.9. I know the sysctl says ipv4,
-but it works for IPv6 as well.
+but it works for IPv6 as well. In recent kernels `bbr` is shipped as a module,
+for this reason it does not show up in
+`net.ipv4.tcp_available_congestion_control`. When you request `bbr` with the
+sysctl, the module will automatically be loaded.
 
 `net.ipv4.tcp_congestion_control=bbr`
 
-### net.core.default_qdisc and txqueuelen
+### net.core.default_qdisc
 
 The qdisc (queuing discipline) is another param which gets mentioned often. The
 qdisc orders packets which are queued so they can be sent in the most efficient
-order possible. The thing is, when you're sending at 100 Gbps then queuing is
-completely irrelevant, the network is rarely the bottleneck here.
+order possible.
 
-Google used to require `fq` with `bbr`, but that requirement has been dropped. I
-suggest you use something minimal and fast. How about `pfifo_fast`, it has fast
-in the name, must be good, right? This is actually already the default on Linux
-nowadays, so there's not really a need to change it.
+BBR uses packet pacing as a way to detect congestion. `fq` has its own pacing
+system built in which should be more performant than the default one. When `fq`
+is enabled `bbr` will use `fq`'s pacing system, which improves performance.
 
-`net.core.default_qdisc=pfifo_fast`
-
-A queue must have a size though. Linux gives the network queues a size of 1000
-packets by default. As we'll learn later, a thousand packets is really not a lot
-when running at 100 Gbps. When the queue is full the kernel will actually drop
-packets, which is absolutely not what we want. So we increase the queue length
-to 10000 packets instead:
-
-`ip link set $INTERFACE txqueuelen 10000`
+`net.core.default_qdisc=fq`
 
 ### net.ipv4.tcp_shrink_window
 
-This sysctl was developed by Cloudflare. The patch was merged into Linux 6.1. If
-you are on an older kernel version than 6.1 you will need to manually apply [the
+This sysctl was developed by Cloudflare. The patch was merged into Linux 6.5. If
+you are on an older kernel version than 6.5 you will need to manually apply [the
 patches](https://github.com/cloudflare/linux/) and compile the kernel on your
 machine. Without this patch the kernel will waste so much time and memory on
 buffer management that by the time you reach 100 Gigabit the kernel won’t even
@@ -149,9 +145,9 @@ GbE NIC after all. For this reason pixeldrain servers use a maximum buffer size
 of 1 GiB.
 
 ```
-net.ipv4.tcp_wmem='4096 65536 1073741824'
+net.ipv4.tcp_wmem=4096 65536 1073741824
 net.core.wmem_max=1073741824
-net.ipv4.tcp_rmem='4096 65536 1073741824'
+net.ipv4.tcp_rmem=4096 65536 1073741824
 net.core.rmem_max=1073741824
 ```
 
@@ -234,10 +230,6 @@ matter.
 Ethtool needs your network interface name for every operation. In this guide we
 will refer to your interface name as `$INTERFACE`. You can get your interface
 name from `ip a`.
-
-Ethtool options are not persistent through reboots. And there's no configuration
-file to put them in either. So you'll need to put them in a script which runs
-somewhere in the boot process somehow.
 
 ### Channels (ethtool -l)
 
@@ -351,6 +343,31 @@ interrupts, go into `htop`, then to Setup (F2) and enable "Detailed CPU time"
 under Display options. The CPU gauge will now show time spent on handling
 interrupts in purple. Press F10 to save changes.
 
+### Persisting ethtool settings
+
+Ethtool options are not persistent through reboots. As of systemd version 250
+you can set ethtool options in `.link` units. Here is an example `.link` unit
+which will apply the above network optimizations on your network device.
+
+```toml
+[Match]
+# Enter the MAC address of your interface here
+MACAddress=e8:eb:d3:d0:94:2f
+
+[Link]
+RxBufferSize=max
+TxBufferSize=max
+UseAdaptiveRxCoalescing=no
+UseAdaptiveTxCoalescing=no
+RxCoalesceSec=100us
+TxCoalesceSec=100us
+RxMaxCoalescedFrames=8192
+TxMaxCoalescedFrames=8192
+```
+
+Place this unit in `/etc/systemd/network/10-optimize.link` and the options
+should be applied at startup.
+
 ## BIOS
 
 Not even the BIOS is safe from our optimization journey. If fact, some of the
@@ -383,7 +400,7 @@ Most apps have no way to effectively use hundreds of CPU threads. At some point
 adding more threads will only consume more memory and CPU cycles just because
 the kernel scheduler, memory controller and your language runtime have to manage
 all those threads. This can cause huge amounts of overhead. My rule of thumb: If
-you have 64 or more cores: `SMT OFF`
+you have 128 or more cores: `SMT OFF`
 
 ### IOMMU
 
@@ -423,7 +440,9 @@ Ugh, just thinking about all the time I wasted because because nobody told me to
 just turn the IOMMU off gets my blood boiling. That's why I am writing this
 guide, I want to spare you the suffering.
 
-So yea... `AMD CBS > NBIO Common Options > IOMMU > Disabled` ...AND STAY DOWN!
+You can disable IOMMU in the BIOS with this setting: `AMD CBS > NBIO Common
+Options > IOMMU > Disabled`. Or you can disable it with a kernel boot parameter
+in `/etc/default/grub`: `intel_iommu=off amd_iommu=off`.
 
 I also just turn off anything related to virtualization nowadays. Having
 virtualization options enabled when you are not running VMs is a waste of
@@ -444,8 +463,10 @@ shit immediately.
 
 One little caveat is that Linux requires the IOMMU to support more than 255 CPU
 threads. So if you have 256 threads and the IOMMU is turned off one of your
-threads will be disabled. So once again I will repeat my rule of thumb with
-regards to multithreading: If you have 64 or more cores: `SMT OFF`
+threads will be disabled. If you have more than 255 threads you should keep the
+IOMMU enabled in the BIOS and enable passthrough mode in the kernel by adding
+`iommu=pt` to the boot parameters. This allows the CPU to address more than 255
+threads, but disables the address translation which wrecked our NIC performance.
 
 ## Reverse proxy
 
@@ -534,7 +555,9 @@ throughput I got with HTTP/2. Sure, latency is lower, but that's not that useful
 to me when the most important part of my site stops functioning. Sure, TCP is
 not perfect, but it's better than having to do everything yourself.
 
-To summarize, if you only care about throughput: HTTP/2 👍 HTTP/3 👎 (for now)
+To summarize, if you only care about throughput: HTTP/2 👍 HTTP/3 👎 (as of
+2024. HTTP3/QUIC are still in heavy development, it's possible this verdict
+might change soon).
 
 ## Operating system
 
@@ -556,7 +579,7 @@ the next paragraph.
 
 ## Kernel
 
-You need to run at least kernel 6.1, because of the `net.ipv4.tcp_shrink_window`
+You need to run at least kernel 6.5, because of the `net.ipv4.tcp_shrink_window`
 sysctl. But generally, **newer is better**. There are dozens of engineers from
 Google, Cloudflare and Meta tinkering away at the Linux network stack every day.
 It gets better with every release, really, the pace is staggering.
@@ -575,8 +598,14 @@ stable by the kernel developers and are generally safe to use.
 Keep an eye on the [Phoronix Linux Networking
 blog](https://www.phoronix.com/linux/Linux+Networking) for new kernel features.
 Pretty much every kernel version that comes out boasts about huge network
-performance wins. I'm personally waiting for Kernel 6.8 to come out. They are
-promising a 40% TCP performance boost. Crazy!
+performance wins.
+
+Here are some important kernel versions with large performance wins:
+
+* 6.8: 40% TCP performance boost by applying cache line optimizations
+  https://www.phoronix.com/news/Linux-6.8-Networking
+* 6.19: Double the sending rate at half the CPU cost by removing a spinlock in
+  the send path https://www.phoronix.com/news/Linux-6.19-Networking
 
 ## That's all, folks!
 
@@ -608,3 +637,13 @@ GitHub](https://github.com/Fornaxian/pixeldrain_web/blob/master/res/include/md/1
 Follow me on [Mastodon](https://mastodon.social/@fornax),
 [Twitter](https://twitter.com/Fornax96), join our
 [Discord](https://discord.gg/TWKGvYAFvX), et cetera et cetera
+
+## Changes
+
+This guide was updated on 2026-07-14 with the following changes:
+
+ * Replaced default qdisc with `fq` because it should have better performance
+   when used in conjunction with `bbr`.
+ * Added a paragraph about systemd `.link` units to persist ethtool config.
+ * Updated the path of the sysctl config file.
+ * Add a note about IOMMU passthrough mode in kernel parameters.
