@@ -14,7 +14,7 @@ within the last 24 hours.
 
 File expiry is often seen as a downside of pixeldrain. But keep in mind that 60
 days is a very long time. Roughly two months. This means that you can keep a
-file active for an entire year by only downloading it three times. Files which
+file active for an entire year by only downloading it six times. Files which
 are only very sporadically downloaded can stay online indefinitely. All this
 time the file is using storage space and processing power on our servers, which
 costs real money.
@@ -107,6 +107,17 @@ And here are some other common errors with activating the subscription:
   any of the alternative domain names. Go ahead to
   [pixeldrain.com/login](https://pixeldrain.com/login), log in to your account
   and try again.
+
+## I keep getting added to the Discord server when I try to leave.
+
+The Discord server has a bot from Patreon which adds all patrons to the Discord
+server every day. You will be assigned a role based on your support tier on
+Patreon.
+
+If you do not want to be in the Discord server you can choose to leave the
+server from your [account settings on
+Patreon](https://www.patreon.com/settings/apps/discord). If you try to leave the
+server directly, you will be added back at midnight.
 
 ## How does the transfer limit work?
 
