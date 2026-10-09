@@ -8,10 +8,10 @@ Abuse Material) databases. Currently we are working with [Project
 Arachnid](https://projectarachnid.ca/en/) and [Stichting
 Offlimits](https://offlimits.nl/).
 
-We will periodically check every image and video file on the site against these
-databases. Once there is a match with one of the databases, the file will be
+Images, videos and compressed archives are scanned directly after they are
+uploaded. When there is a match with one of the databases, the file will be
 removed from our database and the IP address and account which uploaded the file
-will be banned.
+will be banned according to the content policy.
 
 ## Technical details
 
