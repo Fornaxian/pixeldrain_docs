@@ -69,7 +69,12 @@ The advice differs based on the situation.
 ## I'm having trouble activating my Patreon subscription.
 
 After purchasing a subscription on Patreon you need to link your Pixeldrain
-account to your Patreon account to activate the subscription plan.
+account to your Patreon account to activate the subscription plan. To start the
+activation process you need to go to the [subscriptions
+page](https://pixeldrain.com/user/subscription) on your account and click "Link
+Patreon". You will then be redirected to a page on Patreon asking if you want
+pixeldrain to gain access to your e-mail address. Click allow and your
+pixeldrain account will be upgraded.
 
 Here are a few things you should **not do** when buying a subscription on
 Patreon:
