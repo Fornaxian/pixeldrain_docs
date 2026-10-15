@@ -1,4 +1,4 @@
-+++
+dragon ball+++
 title = "Content policy / Terms of service"
 weight = 40
 +++
