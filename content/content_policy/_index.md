@@ -5,8 +5,7 @@ weight = 40
 
 ## Disallowed content types
 
-The following types of content are not allowed to be shared on pixeldrain. They
-will be removed when reported.
+The following types of content are not allowed to be shared on pixeldrain
 
 Violating these rules will result in your account and IP address being banned
 from uploading to pixeldrain.
@@ -28,21 +27,6 @@ sending a copyright infringement notice to our abuse address, please state
 clearly that it is a copyright infringement notice so that we can properly
 detect the type of report. Using words like "theft" or "stolen" won't be
 detected because they are too vague.
-
-### Child abusive material
-
-This category includes:
-* Media which shows nude children, inappropriate touching of children or
-  physical harm to children.
-* Pornographic media which contains children.
-* Media which encourages sexual exploitation of children.
-* Media which depicts sexual communication with children.
-* Text posts promoting the sale or distribution of child abusive material.
-
-Definitions:
-* A child is defined as a person under the age of 18 years.
-* Media is defined as images, videos, audio and documents which contain
-  audiovisual information.
 
 We use [automated scanning](/content_policy/automated_scanning) to search for
 child abusive material on the site. When a match is found, the account which
